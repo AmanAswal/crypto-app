@@ -1,32 +1,26 @@
-import { Container, HStack } from '@chakra-ui/react';
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { server } from '../index';
-import ErrorComponent from './ErrorComponent';
-import ExchangeCard from './ExchangeCard';
-import Loader from './Loader';
+import React from 'react'
 
-const Exchanges = () => {
-
-  const [exchanges, setExchanges] = useState([]);
+const Coins = () => {
+  const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    const fetchExchanges = async () => {
+    const fetchCoins = async () => {
       try {
-        const { data } = await axios.get(`${server}/exchanges`);
-        setExchanges(data);
+        const { data } = await axios.get(`${server}/coins`);
+        setCoins(data);
         setLoading(false);
       } catch (error) {
         setError(true);
         setLoading(false);
       }
     };
-    fetchExchanges();
+    fetchCoins();
   }, []);
 
-  if(error) {
+  if (error) {
     return <ErrorComponent message={"Error While Fetching API Data"} />
   }
 
@@ -46,4 +40,4 @@ const Exchanges = () => {
   )
 }
 
-export default Exchanges
+export default Coins;
