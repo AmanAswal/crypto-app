@@ -1,4 +1,4 @@
-import { Button, HStack } from '@chakra-ui/react'
+import { Button, ButtonGroup, HStack } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ToggleColorMode from './ToggleColorMode'
@@ -6,19 +6,22 @@ import ToggleColorMode from './ToggleColorMode'
 const Header = () => {
   return (
     <HStack p="4" shadow="base">
-        <Button variant="unstyled">
-            <Link to="/">Home</Link> 
-        </Button>
-        
-        <Button variant="unstyled">
-            <Link to="/exchanges">Exchanges</Link> 
-        </Button>
-        
-        <Button variant="unstyled">
-            <Link to="/coins">Coins</Link> 
+      <ButtonGroup variant='unstyled' spacing='4'>
+        <Button>
+          <Link to="/">Home</Link>
         </Button>
 
-        <ToggleColorMode />
+        <Button>
+          <Link to="/exchanges">Exchanges</Link>
+        </Button>
+
+        <Button>
+          <Link to="/coins">Coins</Link>
+        </Button>
+      </ButtonGroup>
+
+
+      <ToggleColorMode />
     </HStack>
   )
 }
