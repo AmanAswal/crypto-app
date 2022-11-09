@@ -111,7 +111,7 @@ const CoinDetails = () => {
             </HStack>
           </RadioGroup>
 
-          <VStack spacing={"4"} p="16" alignItems={"flex-start"}>
+          <VStack spacing={"4"} p={"16"} alignItems={"flex-start"}>
             <Text fontSize={"small"} alignSelf={"center"} opacity={0.7}>
               Last Updated on {Date(coin.market_data.last_updated).split("G")[0]}
             </Text>
@@ -139,11 +139,23 @@ const CoinDetails = () => {
             <CustomBar high={`${currencySymbol} ${coin.market_data.high_24h[currency]}`} low={`${currencySymbol} ${coin.market_data.low_24h[currency]}`} />
 
             <Box w={"full"} p="4">
-              <Item title={"Max supply"} value={coin.market_data.max_supply} />
-              <Item title={"Circulating supply"} value={coin.market_data.circulating_supply} />
-              <Item title={"Market Capital"} value={`${currencySymbol} ${coin.market_data.market_cap[currency]}`} />
-              <Item title={"All Time Low"} value={`${currencySymbol} ${coin.market_data.atl[currency]}`} />
-              <Item title={"All Time High"} value={`${currencySymbol} ${coin.market_data.ath[currency]}`} />
+              <Item title={"Max Supply"} value={coin.market_data.max_supply} />
+              <Item
+                title={"Circulating Supply"}
+                value={coin.market_data.circulating_supply}
+              />
+              <Item
+                title={"Market Cap"}
+                value={`${currencySymbol}${coin.market_data.market_cap[currency]}`}
+              />
+              <Item
+                title={"All Time Low"}
+                value={`${currencySymbol}${coin.market_data.atl[currency]}`}
+              />
+              <Item
+                title={"All Time High"}
+                value={`${currencySymbol}${coin.market_data.ath[currency]}`}
+              />
             </Box>
 
           </VStack>
@@ -169,7 +181,7 @@ const CustomBar = ({ high, low }) => {
 
 const Item = ({ title, value }) => {
   return (
-    <HStack justifyContent={"space-around"} w={"full"} my={"4"}>
+    <HStack justifyContent={"space-between"} w={"full"} my={"4"}>
       <Text fontFamily={"Bebas Neue"} letterSpacing={"widest"}>{title}</Text>
       <Text>{value}</Text>
     </HStack>

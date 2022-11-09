@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import {Home, Header, Coins, CoinDetails, Exchanges} from "./components/exportComponents";
+import {Home, Header, Coins, CoinDetails, Exchanges, Footer} from "./components/exportComponents";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Route path="/exchanges" element={<Exchanges/>} />
         <Route path="/coin/:id" element={<CoinDetails/>} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
